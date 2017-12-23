@@ -1,14 +1,11 @@
 def rotate_matrix(list_of_lists):
     """
 
-    >>> rotate_matrix(
-        [
-            [1, 2, 3],
-            [4, 5, 6],
-            [7, 8, 9]
-            ]
-        )
-    [[7, 4, 1], [8, 5, 2], [9, 6, 3]]
+    >>> rotate_matrix([[1, 2, 3], [4, 5, 6],
+            [7, 8, 9]])
+    [[7, 4, 1],
+    [8, 5, 2],
+    [9, 6, 3]]
 
     >>> rotate_matrix(
         [
@@ -26,13 +23,20 @@ def rotate_matrix(list_of_lists):
     """
 
     return_list = []
-    for i in range(len(list_of_lists)-1):
-        return_list.append([])
 
-    print return_list
-    # for i in range(-1, len(list_of_lists)):
-    #     return_list[i]
+    # Populate return list with correct number of lists
+    for i in range(len(list_of_lists)):
+        print i
+        row_to_add = []
+        for j in range(-1, -1 *(len(list_of_lists) + 1), -1):
+            row_to_add.append(list_of_lists[j][i])
+            print row_to_add
 
+        return_list.append(row_to_add)
+        print return_list
+
+
+    return return_list
 
 
 if __name__ == "__main__":

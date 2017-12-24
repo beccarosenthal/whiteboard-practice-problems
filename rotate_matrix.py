@@ -13,21 +13,15 @@ def rotate_matrix(list_of_lists):
     """
 
     return_list = []
+    for i in range(len(list_of_lists)):
+        return_list.append([])
 
-    count = 0
-
-    while count < len(list_of_lists):
-
-        row_to_add = []
-
-        for j in range(-1, -1 *(len(list_of_lists) + 1), -1):
-            row_to_add.append(list_of_lists[j][count])
-
-        return_list.append(row_to_add)
-        count += 1
-
+    for i in range(-1, -1 * (len(list_of_lists) + 1), -1):
+        for j in range(len(list_of_lists[i])):
+            return_list[j].append(list_of_lists[i][j])
 
     return return_list
+
 
 lst_1 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 print rotate_matrix(lst_1)

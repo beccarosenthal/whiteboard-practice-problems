@@ -14,16 +14,17 @@ def rotate_matrix(list_of_lists):
 
     return_list = []
 
-    # Populate return list with correct number of lists
-    for i in range(len(list_of_lists)):
-        # print i
+    count = 0
+
+    while count < len(list_of_lists):
+
         row_to_add = []
+
         for j in range(-1, -1 *(len(list_of_lists) + 1), -1):
-            row_to_add.append(list_of_lists[j][i])
-            # print row_to_add
+            row_to_add.append(list_of_lists[j][count])
 
         return_list.append(row_to_add)
-        # print return_list
+        count += 1
 
 
     return return_list

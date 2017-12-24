@@ -54,6 +54,48 @@ def has_balanced_brackets(phrase):
     string contains balanced (), {}, [], and/or <>.
     """
 
+    if not phrase:
+      return False
+
+    # Implement a stack
+
+    # Opening brackets will always be even indices
+    # Closing brackets will always be closed indices
+    symbols = ['(', ')', '{', '}', '[', ']', '<', '>']
+
+    brackets = []
+
+    for i in range(len(phrase)):
+      # If character not a bracket, ignore it
+      # print i
+      # print phrase[i]
+      # print brackets
+
+        # Figure out if the bracket is opener or closer
+        try:
+            symbol_index = symbols.index(phrase[i])
+        except:
+            if phrase[i] not in symbols:
+                continue
+
+        # If it's an opener, add it to the brackets stack
+        if symbol_index % 2 == 0:
+            brackets.append(phrase[i])
+
+        # If it's a closing bracket
+        else:
+            if len(brackets) == 0 or brackets[-1] != symbols[symbol_index - 1]:
+                return False
+            else:
+                brackets.pop()
+
+
+    if not brackets:
+        return True
+    else:
+        return False
+
+
 if __name__ == '__main__':
     import doctest
     if doctest.testmod().failed == 0:

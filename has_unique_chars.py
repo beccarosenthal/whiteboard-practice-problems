@@ -21,6 +21,14 @@ Uppercase and lowercase letters should be considered separately::
 def has_unique_chars(word):
     """Does word contains unique set of characters?"""
 
+    chars = {}
+    for letter in word:
+        chars[letter] = chars.get(letter, 0) + 1
+        if chars[letter] > 1:
+            return False
+
+    return True
+
 if __name__ == '__main__':
     import doctest
     if doctest.testmod().failed == 0:

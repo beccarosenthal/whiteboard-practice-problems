@@ -29,6 +29,9 @@ def rotate_matrix(list_of_lists):
 
     return return_list
 
+lst_1 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+print rotate_matrix(lst_1)
+
 
 if __name__ == "__main__":
     import doctest

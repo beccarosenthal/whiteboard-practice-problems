@@ -39,6 +39,52 @@ def sudoku(grid):
     False
     """
 
+    # Run helper function that checks rows and columns; return False if it comes
+    # back as False
+    if not sudoku_rows_and_columns(grid):
+        return False
+
+    subgrid1 = set()
+    subgrid2 = set()
+    subgrid3 = set()
+
+    row_index = 0
+    for row in grid:
+        for i in range(len(row)):
+            value = row[i]
+            if not value.isdigit():
+                continue
+            elif i < 3:
+                if value not in subgrid1:
+                    subgrid1.add(value)
+                else:
+                    return False
+            elif i < 6:
+                if value not in subgrid2:
+                    subgrid2.add(value)
+                else:
+                    return False
+            else:
+                if value not in subgrid3:
+                    subgrid3.add(value)
+                else:
+                    return False
+
+        row_index += 1
+        if row_index == 3:
+            subgrid1 = set()
+            subgrid2 = set()
+            subgrid3 = set()
+            row_index = 0
+
+
+    return True
+
+
+def sudoku_rows_and_columns(grid):
+    """ An older version of code that doesn't deal with 3x3 grids but takes
+    care of all repeats in rows or columns."""
+
     columns = {}
     for row in grid:
         row_index = 0
@@ -61,7 +107,6 @@ def sudoku(grid):
             row_index += 1
 
     return True
-
 
 if __name__ == "__main__":
     import doctest

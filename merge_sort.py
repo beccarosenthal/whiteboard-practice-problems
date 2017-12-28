@@ -13,6 +13,31 @@ For example:
 """
 
 
-def merge_two_sorted_lists(lst1, lst2):
+def merge_lists(lst1, lst2):a
+    "If given two sorted lists, merge them into one sorted list"
+
+    reversed_sorted = []
+    while lst1 and lst2:
+        if lst1[-1] > lst2[-1]:
+            reversed_sorted.append(lst1.pop())
+        else:
+            reversed_sorted.append(lst2.pop())
 
 
+    if lst2:
+        reversed_sorted += lst2.reverse()
+
+    elif lst1:
+        reversed_sorted.extend(lst1.reverse())
+
+    return reversed_sorted.reverse()
+
+
+if __name__ == "__main__":
+    import doctest
+
+    print
+    result = doctest.testmod()
+    if not result.failed:
+        print "ALL TESTS PASSED. GOOD WORK!"
+    print

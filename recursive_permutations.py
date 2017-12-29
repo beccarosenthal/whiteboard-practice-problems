@@ -11,5 +11,8 @@ def recursive_permutations(string):
     ignoring efficiency. """
 
     return_set = set()
-    for i in range(len(string)):
+    letters = {}
+    for letter in string:
+
+
 

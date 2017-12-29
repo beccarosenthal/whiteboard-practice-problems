@@ -43,6 +43,13 @@ def coins(num_coins):
     This should return a set of the unique amounts of change possible.
     """
 
+    # Set amounts for pennies and dimes
+    p = 1
+    d = 10
+    amount = set()
+    while i < num_coins:
+
+
 
 if __name__ == '__main__':
     import doctest

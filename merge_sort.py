@@ -6,31 +6,32 @@ We have our lists of orders sorted numerically already, in lists. Write a functi
 
 For example:
 
->>> my_list     = [3, 4, 6, 10, 11, 15]
+>>> my_list = [3, 4, 6, 10, 11, 15]
 >>> alices_list = [1, 5, 8, 12, 14, 19]
->>> merge_lists(my_list, alices_list)
+>>> merge_sort(my_list, alices_list)
 [1, 3, 4, 5, 6, 8, 10, 11, 12, 14, 15, 19]
 """
 
 
-def merge_lists(lst1, lst2):a
-    "If given two sorted lists, merge them into one sorted list"
+def merge_sort(lst1, lst2):
+    """If given two sorted lists, merge them into one sorted list"""
 
     reversed_sorted = []
+
     while lst1 and lst2:
         if lst1[-1] > lst2[-1]:
-            reversed_sorted.append(lst1.pop())
-        else:
-            reversed_sorted.append(lst2.pop())
-
+            reversed_sorted += [lst1.pop()]
+        elif lst1[-1] < lst2[-1]:
+            reversed_sorted += [lst2.pop()]
 
     if lst2:
-        reversed_sorted += lst2.reverse()
+        reversed_sorted.extend(lst2)
 
     elif lst1:
-        reversed_sorted.extend(lst1.reverse())
+        reversed_sorted += lst1.reverse()
 
-    return reversed_sorted.reverse()
+    reversed_sorted.reverse()
+    return reversed_sorted
 
 
 if __name__ == "__main__":

@@ -47,7 +47,10 @@ def coins(num_coins):
     p = 1
     d = 10
     amount = set()
-    while i < num_coins:
+    for i in range(num_coins + 1):
+        amount.add(p * i + d * (num_coins -i))
+
+    return amount
 
 
 
